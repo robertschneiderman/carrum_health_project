@@ -2,17 +2,18 @@
 
 }
 
-.pi--bar {
-
-}
+.pi--bar {display: flex;align-items: center;left: 50%;transform: translate3d(-19%, 0%, 0);}
 
 .pi--steps {
 
 }
 
-.bar {
-
+.pi--text {
+    position: absolute;
+    /* transform: translate3d(-50%, -50%, 0); */
 }
+
+.bar {display: flex;align-items: center;}
 
 .bar--circles {
 
@@ -22,10 +23,29 @@
 
 }
 
-.pi {
-
-}
+.pi {display: flex;}
 
 .pi-label {
 
+}
+
+.bar--circle {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 1px solid blue;
+}
+
+.bar--line {
+    width: 10rem;
+    height: 3rem;
+    background-color: #fff;
+    left: -9px;
+    border: 1px solid blue;
+    border-left: 0;
+    border-right: 0;
+}
+
+#Layer_1 {
+    width: 100%;
 }

@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import merge from 'lodash/merge';
 import {router, hashHistory} from 'react-router';
 
-phases: [
+let phases = [
     {
-        phase: 1,
+        number: 1,
         name: 'Program Qualification',
         completion: 0,
         active: true,
@@ -14,19 +14,19 @@ phases: [
             }
         ]
     },{
-        phase: 2,
+        number: 2,
         name: 'Pre-Admission Preparation',
         completion: 0,
         active: false,
         tasks: []
     },{
-        phase: 3,
+        number: 3,
         name: 'Hospital Stay',
         completion: 0,
         active: false,
         tasks: []
     },{
-        phase: 4,
+        number: 4,
         name: 'Post-Discharge Activities',
         completion: 0,
         active: false,
@@ -36,17 +36,15 @@ phases: [
 ];
 
 let defaultState = {
-    phases: [
-        {
-
-        }
-    ]
+    activePhase: 0,
+    phases
 };
 
 const dashboardReducer = (state = defaultState, action) => {
-    let newState;
+    let newState = merge({}, state);
     switch (action.type) {
-        case 'UPDATE_NAME':
+        case 'MAKE_PROGRESS':
+            newState.phases[0].completion += action.payload;
             return newState;
         default:
             return state;

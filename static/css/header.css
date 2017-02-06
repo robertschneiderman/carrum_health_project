@@ -1,0 +1,26 @@
+.navbar {/* background-color: #bfe3e6; */display: flex;justify-content: space-between;padding: 0.4rem 3rem;/* max-width: 1300px; */margin: 0 auto;align-items: center;border-bottom: 2px solid #aaa;}
+
+.navbar--logo {width: 12rem;}
+
+.navbar--text {font-size: 1.3rem;color: #aaa;}
+
+.navbar--img {width: 7.9rem;}
+
+.navbar--btn {
+  width: 2.3rem;
+}
+
+.navbar-nav {
+
+}
+
+.navbar-item {
+
+}
+
+.nav-link {
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: #6fbbe2;
+}

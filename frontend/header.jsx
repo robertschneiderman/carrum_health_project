@@ -21,19 +21,16 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar">
-        <h1>Logo</h1>
-        <ul className="navbar-nav">
-          {this.renderLinks()}
-        </ul>
+        <img className="navbar--logo" src="./static/images/logo_large.svg" alt="Carrum Health Logo"/>
+        <p className="navbar--text">Welcome Wayne Enterprises Members</p>
+        <img className="navbar--img" src="./static/images/wane_logo.jpg" alt="Wane Logo"/>
+        <img className="navbar--btn" src="./static/images/hamburger_icon.svg" alt="Hamberger Icon"/>
       </nav>
     );
+        // <ul className="navbar-nav">
+        //   {this.renderLinks()}
+        // </ul>
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    authenticated: state.auth.authenticated
-  };
-}
-
-export default connect(mapStateToProps)(Header);
+export default Header;

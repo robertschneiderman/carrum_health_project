@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
-import auth from './auth/reducer';
 import dashboard from './dashboard/reducer';
 
 const appReducer = combineReducers({
-  auth,
   form,
   dashboard
 });

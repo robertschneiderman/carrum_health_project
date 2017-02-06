@@ -1,30 +1,34 @@
 import React, {Component} from 'react';
 import * as actions from '../actions';
 
-class ProgressIndicator extends Component {
+class Phase extends Component {
     constructor(props) {
         super(props);
     }
 
     renderBar() {
+        let { phase, middle } = this.props;
         let arr = [];
-        for (let i = 0; i <= 4; i++) {
-            arr.push(
-                <div className="bar--circle"></div>,
-                <div className="bar--line"></div>
-            );
-        }
+        if (middle) arr.push(
+            <div className="bar--line"></div>
+        );
+        arr.push(
+            <div className="bar--circle"></div>,
+            <div className="bar--line"></div>
+        );
         return arr;
     }
 
+                // <div className="pi--bar">
+                //     {this.renderBar()}
+                // </div>
     render() {
+
+        let { name } = this.props.phase;
         return(
             <div className="phase">
-                <div className="pi--bar">
-                    {this.renderBar()}
-                </div>
-                <p className="phase--name"></p>
-                <ul className="phase--list">
+                <p className="phase--name">{name}</p>
+                <ul className="phase--list list-phase">
                     <li className="item-phase"></li>
                 </ul>
             </div>
@@ -32,4 +36,4 @@ class ProgressIndicator extends Component {
     }
 }
 
-export default ProgressIndicator;
+export default Phase;
