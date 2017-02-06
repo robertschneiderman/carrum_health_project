@@ -43,12 +43,13 @@ class Dashboard extends Component {
                     </div>
                     <ul className="phases-result list-phase">
                         <li className="item-phase"><strong>Currently Performing:</strong> Medical Records Collection</li>
+                        {this.props.children}
                     </ul>
                 </div>
 
                 <hr className="line" />
 
-                <Panels />
+                <Panels {...this.props} />
             </div>
         );
     }

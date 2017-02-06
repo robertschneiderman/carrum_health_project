@@ -1,13 +1,30 @@
 import React, {Component} from 'react';
 import * as actions from '../actions';
+import {router, hashHistory} from 'react-router';
 
 class Panels extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            taskId: 1
+        };
     }
 
-    handleClick() {
+    handleClick(taskId) {
+        hashHistory.push(`task`);
+    }
 
+    renderTasks() {
+        let {phases, activePhase} = this.props;
+        return phases[activePhase].tasks.map(task => {
+            return (
+                <div>
+                    <p className="text-bold bullet-arrow">Complete {task.name}</p>
+                    <p className="link" onClick={this.handleClick.bind(this, this.state.taskId)}>Complete</p>
+                </div>
+            );
+                
+        });
     }
     
     render() {
@@ -19,8 +36,7 @@ class Panels extends Component {
                     </div>
 
                     <div className="panel--main">
-                        <p className="text-bold bullet-arrow">Complete medical records release form</p>
-                        <p className="link" onClick={this.handleClick.bind(this)}>Complete</p>
+                        {this.renderTasks()}
                     </div>
                 </div>            
             
