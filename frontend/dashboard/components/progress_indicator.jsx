@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ProgressIndicatorSkeleton from './progress_indicator_skeleton';
 const Snap = require(`imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js`);
 var ProgressBar = require('progressbar.js');
 window.Snap = Snap;
@@ -14,8 +15,9 @@ class ProgressIndicator extends Component {
 
     componentDidMount() {
         let circle = new ProgressBar.Circle('#circle', {
-            color: '#FCB03C',
+            color: '#187bca',
             duration: 3000,
+            strokeWidth: 5,            
             easing: 'easeInOut',           
             text: {
                 value: '0'
@@ -25,9 +27,9 @@ class ProgressIndicator extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        debugger;
-        if (nextProps.activePhase !== this.props.activePhase) {
-            document.getElementById('outer-pi-container').style.left = '33.3%';
+        let { activePhase } = this.props;
+        if (nextProps.activePhase !== activePhase) {
+            document.getElementById('outer-pi-container').style.left = `${31.35 * (activePhase + 1)}%`;
             this.state.circle.set(0);
             this.state.circle.setText('0%');
             // this.state.circle.animate(0); 
@@ -48,7 +50,6 @@ class ProgressIndicator extends Component {
 
 
     renderBar() {
-        debugger;
         return this.props.phases.map((phase, i) => {
             let middle = true;
             if (i === 0 || i === phase.length-1) middle = false;             
@@ -68,9 +69,11 @@ class ProgressIndicator extends Component {
         return(
             <div className="pi">
                 <div id="outer-pi-container" className="pi--circle">
+                    <div className="circle-bg"></div>
                     <div id="circle"></div>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 854.5 85"><path fill="#FFF" stroke="#000" stroke-miterlimit="10" d="M812 .5c-15.4 0-28.8 8.2-36.1 20.5H591.6C584.3 8.7 570.9.5 555.5.5c-15.4 0-28.8 8.2-36.1 20.5H335.1C327.8 8.7 314.3.5 299 .5c-15.4 0-28.8 8.2-36.1 20.5H78.6C71.3 8.7 57.9.5 42.5.5 19.3.5.5 19.3.5 42.5s18.8 42 42 42c16.1 0 30-9 37.1-22.3h182.3c7.1 13.3 21 22.3 37.1 22.3s30-9 37.1-22.3h182.3c7.1 13.3 21 22.3 37.1 22.3s30-9 37.1-22.3h182.3c7.1 13.3 21 22.3 37.1 22.3 23.2 0 42-18.8 42-42s-18.8-42-42-42z"/></svg>            </div>
+                <ProgressIndicatorSkeleton />
+            </div>
         );
     }
 }

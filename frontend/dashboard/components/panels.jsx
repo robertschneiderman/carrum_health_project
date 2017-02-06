@@ -8,6 +8,7 @@ class Panels extends Component {
     render() {
         return(
             <div className="panels">
+                
             </div>
         );
     }

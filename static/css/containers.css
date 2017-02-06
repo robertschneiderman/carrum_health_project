@@ -1,7 +1,12 @@
 .container {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
+}
+
+.db {
+    margin: 0 auto;
+    width: 80%;
 }
 
 .panels {

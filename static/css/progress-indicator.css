@@ -8,7 +8,19 @@
 
 }
 
-.pi--circle {width: 9.9%;height: 98.9%;m;position: absolute;z-index: 9999;/* left: 30.2%; */top: 50%;transform: translateY(-50%);}
+.pi--skeleton {
+    width: 100%;
+    height: 100%;
+}
+.pi--circle {width: 5.9%;height: 101%;m;position: absolute;z-index: 9999;/* left: 30.2%; */top: 50%;transform: translateY(-50%);}
+
+.circle-bg {
+    width: 100%;
+    height: 100%;
+    background-color: #51abef;
+    position: absolute;
+    border-radius: 50%;
+}
 
 .pi--text {
     position: absolute;
@@ -25,7 +37,7 @@
 
 }
 
-.pi {display: flex;margin-top: 4rem;}
+.pi {display: flex;margin: 4rem auto 0;width: 90%;}
 
 .pi-label {
 
@@ -46,9 +58,4 @@
     border: 1px solid blue;
     border-left: 0;
     border-right: 0;
-}
-
-#Layer_1 {
-    width: 100%;
-    height: 100%;
 }
