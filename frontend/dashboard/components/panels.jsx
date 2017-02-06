@@ -7,7 +7,7 @@ class Panels extends Component {
     }
 
     handleClick() {
-        
+
     }
     
     render() {
@@ -15,7 +15,7 @@ class Panels extends Component {
             <div className="panels">
                 <div className="panel">
                     <div className="panel--head">
-                        <p className="title">My next steps</p>
+                        <h3 className="title">My next steps</h3>
                     </div>
 
                     <div className="panel--main">
@@ -26,7 +26,7 @@ class Panels extends Component {
             
                 <div className="panel">
                     <div className="panel--head">
-                        <p className="text-bold bullet-arrow">My Care Concierge</p>
+                        <h3 className="title">My Care Concierge</h3>
                     </div>
 
                     <div className="panel--main">

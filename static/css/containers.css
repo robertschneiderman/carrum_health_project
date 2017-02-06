@@ -15,6 +15,4 @@
     padding: 1rem 2rem;
 }
 
-.panels {
-
-}
+.panels {display: flex;justify-content: space-between;}

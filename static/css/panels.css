@@ -1,11 +1,15 @@
-.panel {
-
-}
+.panel {border: 2px solid #eee;width: 48%;border-radius: 10px;overflow: hidden;}
 
 .panel--head {
-    
+    background-color: #ddd;
+    /* border-top-left-radius: 7px; */
+    /* border-top-right-radius: 7px; */
 }
 
 .panel--main {
 
+}
+
+.panel--head, .panel--main {
+    padding: 0.9rem 1rem;
 }
