@@ -44,8 +44,11 @@ const dashboardReducer = (state = defaultState, action) => {
     let newState = merge({}, state);
     switch (action.type) {
         case 'MAKE_PROGRESS':
-            newState.phases[0].completion += action.payload;
+            newState.phases[newState.activePhase].completion += action.payload;
             return newState;
+        case 'NEXT_PHASE':
+            newState.activePhase += action.payload;
+            return newState;            
         default:
             return state;
     }

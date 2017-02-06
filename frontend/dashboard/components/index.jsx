@@ -9,6 +9,7 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleClick2 = this.handleClick2.bind(this);
     }
 
     renderPhases() {
@@ -19,14 +20,19 @@ class Dashboard extends Component {
     }
 
     handleClick() {
-        this.props.makeProgress(10);
+        this.props.makeProgress(20);
     }
+
+    handleClick2() {
+        this.props.nextPhase(1);
+    }    
 
     render() {
 
         return(
             <div className="db">
                 <button id="temp" onClick={this.handleClick}>Update Props</button>
+                <button id="temp2" onClick={this.handleClick2}>Update Props 2</button>
                 <ProgressIndicator {...this.props} />
                 <div className="container phases">
                     {this.renderPhases()}
@@ -47,7 +53,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    makeProgress: payload => dispatch(actions.makeProgress(payload))
+    makeProgress: payload => dispatch(actions.makeProgress(payload)),
+    nextPhase: payload => dispatch(actions.nextPhase(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
