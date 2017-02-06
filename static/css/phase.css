@@ -1,17 +1,28 @@
 .phases {
-    
+    z-index: 10;
 }
 
 .phase {text-align: center;width: 24%;/* transform: translateX(-50%); */}
 
-.phase.active {
+.phase {
     /* background-color: #f9f9f9; */
     /* border: 2px solid #187bca; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* left: 0.45rem; */
+    /* top: -1rem; */
+    width: 100%;
+    /* background-image: url('../images/pane.svg'); */
+}
+
+.phase.active .phase--top {
     background-repeat: no-repeat;
-    background-size: cover;
-    left: 0.3rem;
-    top: -1rem;
-    background-image: url('../images/pane.svg');
+    background-size: contain;
+    background-image: url(../images/pane.svg);
+}
+
+.phase--top {
+    padding: 11%;
 }
 
 /*.phase::before {
@@ -36,6 +47,10 @@
 
 }
 
-.phase--list {
+.phases-sec {left: 0.05rem;top: -1rem;}
+
+.phases {
 
 }
+
+.phases-result {margin: 0;background-color: #f9f9f9;border: 3px solid #277abf;top: -6px;left: 0.4px;z-index: 5;padding: 1rem 2.5rem;}

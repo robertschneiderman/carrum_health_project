@@ -34,10 +34,20 @@ class Dashboard extends Component {
             <div className="db">
                 <button id="temp" onClick={this.handleClick}>Update Props</button>
                 <button id="temp2" onClick={this.handleClick2}>Update Props 2</button>
+                
                 <ProgressIndicator {...this.props} />
-                <div className="container phases">
-                    {this.renderPhases()}
+                
+                <div className="phases-sec">
+                    <div className="container phases">
+                        {this.renderPhases()}
+                    </div>
+                    <ul className="phases-result list-phase">
+                        <li className="item-phase"><strong>Currently Performing:</strong> Medical Records Collection</li>
+                    </ul>
                 </div>
+
+                <hr className="line" />
+
                 <Panels />
             </div>
         );
