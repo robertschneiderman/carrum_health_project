@@ -48,24 +48,7 @@ class ProgressIndicator extends Component {
         this.setState({circle: returnedCircle});
     }
 
-
-    renderBar() {
-        return this.props.phases.map((phase, i) => {
-            let middle = true;
-            if (i === 0 || i === phase.length-1) middle = false;             
-            return (
-                <div className="bar">
-                    {(middle) ? <div className="bar--line"></div> : ''}
-                    <div className="bar--circle"></div>
-                    <div className="bar--line"></div>            
-                </div>
-            );
-        });
-    }
-
     render() {
-                // {this.renderBar()}
-                // <p className="pi--text">100%</p>
         return(
             <div className="pi">
                 <div id="outer-pi-container" className="pi--circle">

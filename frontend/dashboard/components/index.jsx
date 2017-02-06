@@ -13,9 +13,10 @@ class Dashboard extends Component {
     }
 
     renderPhases() {
-        let { phases } = this.props;
+        let { phases, activePhase } = this.props;
         return phases.map((phase, i) => {
-            return (<Phase phase={phase} key={`phase-${i}`} />);
+            let active = phase.number === (activePhase+1);
+            return (<Phase phase={phase} active={active} key={`phase-${i}`} />);
         });
     }
 
