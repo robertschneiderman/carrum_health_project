@@ -1,3 +1,14 @@
+.mobile-flex {
+    font-size: 9px;
+}
+
+@media (min-width: 500px) {
+    .mobile-flex {
+        font-size: 12px;
+    }
+}
+
+
 .pi-sec {
 
 }
@@ -17,20 +28,21 @@
 
 
 .pi--circle {
-    width: calc(7.4% * 2);
-    height: calc(100% * 2);
-    top: 380%;
-    transform: translateY(-50%);
-    position: absolute;
-    z-index: 9999;
+        width: 5em;
+        height: 5em;
+        /* top: 380%; */
+        transform: translateY(-50%);
+        position: relative;
+        z-index: 9999;
 }
 
 @media (min-width: 775px) {
     .pi--circle {
+        position: absolute; 
         top: 50%;
         width: 7.4%;
-        height: 100%;        
-        /* left: 30.2%; */;        
+        height: 100%;
+        left: 30.8%;
     }   
 
     .pi--skeleton {
@@ -89,7 +101,7 @@
     border-right: 0;
 }
 
-#circle {
+.circle-progress {
     height: 83%;
     top: 50%;
     left: 50%;

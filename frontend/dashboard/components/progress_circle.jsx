@@ -12,7 +12,8 @@ class ProgressCircle extends Component {
     }
 
     componentDidMount() {
-        let circle = new ProgressBar.Circle('#circle', {
+        let { target } = this.props;        
+        let circle = new ProgressBar.Circle(`#${target}`, {
             color: '#187bca',
             duration: 3000,
             strokeWidth: 14,
@@ -27,6 +28,7 @@ class ProgressCircle extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        debugger;
         let { activePhase } = this.props;
         if (nextProps.activePhase !== activePhase) {
             document.getElementById('outer-pi-container').style.left = `${31.05 * (activePhase + 1)}%`;
@@ -54,12 +56,12 @@ class ProgressCircle extends Component {
     }
     
     render() {
-        let { circleClass } = this.props;
+        let { circleClass, target } = this.props;
         let className= `pi--circle ${circleClass}`;
         return(
             <div id="outer-pi-container" className={className}>
                 <div className="circle-bg"></div>
-                <div id="circle"></div>
+                <div id={target} className="circle-progress"></div>
             </div>
         );
     }

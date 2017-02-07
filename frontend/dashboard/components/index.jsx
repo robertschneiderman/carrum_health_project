@@ -35,16 +35,19 @@ class Dashboard extends Component {
 
         return(
             <div className="db">
-                <ProgressIndicator skeletonClass={''} circleClass={''} {...this.props} />
-                
-                <div className="phases-sec">
-                    <div className="container phases">
-                        {this.renderPhases()}
+                <ProgressIndicator target="circle" skeletonClass={''} circleClass={'desktop'} {...this.props} />
+
+                <div className="mobile-flex">            
+                    <ProgressCircle target="circle-new" circleClass={'mobile'} {...this.props} />
+                    <div className="phases-sec">
+                        <div className="container phases">
+                            {this.renderPhases()}
+                        </div>
+                        <ul className="phases-result list-phase">
+                            <li className="item-phase"><strong>Currently Performing:</strong> Medical Records Collection</li>
+                            {this.props.children}
+                        </ul>
                     </div>
-                    <ul className="phases-result list-phase">
-                        <li className="item-phase"><strong>Currently Performing:</strong> Medical Records Collection</li>
-                        {this.props.children}
-                    </ul>
                 </div>
 
                 <hr className="line" />
