@@ -18,7 +18,6 @@ class Task extends Component {
 
     renderStages() {
         let { stages, activeStage } = this.props;
-            debugger;
         let stage = stages[activeStage];
         let Name = components[stage];
         return <Name {...this.props} />;

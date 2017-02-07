@@ -8,6 +8,7 @@ class Prompt extends Component {
 
     handleClick() {
         this.props.changeStage(1);
+        this.props.makeProgress(24);
     }
 
     render() {

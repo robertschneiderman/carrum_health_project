@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import {router, hashHistory} from 'react-router';
 
 let defaultState = {
-    activeStage: 0
+    activeStage: 0,
 };
 
 const taskReducer = (state = defaultState, action) => {
@@ -11,7 +11,7 @@ const taskReducer = (state = defaultState, action) => {
     switch (action.type) {
         case 'CHANGE_STAGE':
             newState.activeStage += action.payload;
-            return newState;
+            return newState;           
         default:
             return state;
     }
