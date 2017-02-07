@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import * as actions from '../actions';
 
 class ProgressIndicatorSkeleton extends Component {
@@ -17,8 +18,12 @@ class ProgressIndicatorSkeleton extends Component {
     }
 
     render() {
+        let { skeletonClass } = this.props;
+        // let display = mobile ? 'none' : 'block';
+        // let style = {display};
+        let className = `pi--skeleton ${skeletonClass}`;
         return(
-            <div className="pi--skeleton">
+            <div className={className}>
                 {this.renderSkeleton()}
             </div>
         );

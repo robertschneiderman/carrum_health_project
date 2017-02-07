@@ -11,8 +11,32 @@
 .pi--skeleton {
     width: 100%;
     height: 100%;
+    /*margin-bottom: 1rem;*/
 }
-.pi--circle {width: 7.4%;height: 100%;m;position: absolute;z-index: 9999;/* left: 30.2%; */top: 50%;transform: translateY(-50%);}
+.pi--circle {}
+
+
+.pi--circle {
+    width: calc(7.4% * 2);
+    height: calc(100% * 2);
+    top: 380%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 9999;
+}
+
+@media (min-width: 775px) {
+    .pi--circle {
+        top: 50%;
+        width: 7.4%;
+        height: 100%;        
+        /* left: 30.2%; */;        
+    }   
+
+    .pi--skeleton {
+        /*margin-bottom: 0rem;*/
+    } 
+}
 
 .circle-bg {
     width: 100%;
@@ -37,7 +61,12 @@
 
 }
 
-.pi {display: flex;margin: 4rem auto 0;width: 80%;}
+.pi {display: flex;margin: 0rem auto 0;width: 80%;}
+
+@media (min-width: 775px) {
+    .pi {display: flex;margin: 4rem auto 0;width: 82.4%;}
+
+}
 
 .pi-label {
 

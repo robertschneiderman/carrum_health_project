@@ -1,4 +1,11 @@
-.panel {border: 2px solid #eee;width: 48%;border-radius: 10px;overflow: hidden;}
+.panel {border: 2px solid #eee; width: 90%;margin: 0 auto 2rem; border-radius: 10px;overflow: hidden;}
+
+@media (min-width: 775px) {
+    .panel {
+        width: 48%;
+        margin: 0;
+    }
+}
 
 .panel--head {
     background-color: #ddd;

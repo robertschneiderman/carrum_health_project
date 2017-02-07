@@ -9,3 +9,17 @@
 .aic {
     align-items: center;
 }
+
+.none {
+    display: none;
+}
+
+.mobile {
+    display: block;
+}
+
+@media (min-width: 775px) {
+    .mobile {
+        display: none;
+    }    
+}

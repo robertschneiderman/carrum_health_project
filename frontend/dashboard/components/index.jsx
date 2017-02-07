@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ProgressIndicator from './progress_indicator';
+import ProgressCircle from './progress_circle';
 import Phase from './phase';
 import Panels from './panels';
 import * as actions from '../actions';
@@ -30,13 +31,11 @@ class Dashboard extends Component {
     }    
 
     render() {
+                        // <ProgressCircle {...this.props} circleClass={'mobile'} />
 
         return(
             <div className="db">
-                <button id="temp" onClick={this.handleClick}>Update Props</button>
-                <button id="temp2" onClick={this.handleClick2}>Update Props 2</button>
-                
-                <ProgressIndicator {...this.props} />
+                <ProgressIndicator skeletonClass={''} circleClass={''} {...this.props} />
                 
                 <div className="phases-sec">
                     <div className="container phases">
