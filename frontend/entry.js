@@ -18,7 +18,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
-        <Route path="task" component={Task}>
+        <Route path="task/:id" component={Task}>
           <Route path="prompt" component={Prompt} />
           <Route path="medical-release-form/:id" component={MedicalReleaseForm} />
           <Route path="confirm-physicians" component={ConfirmPhysicians} />

@@ -10,7 +10,12 @@ let phases = [
         active: true,
         tasks: [
             {
-                name: 'medical records release form'
+                name: 'medical records release form',
+                stages: [
+                    'prompt',
+                    'medical-release-form',
+                    'confirm-physicians'
+                ]
             }
         ]
     },{
