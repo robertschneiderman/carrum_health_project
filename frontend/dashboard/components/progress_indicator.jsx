@@ -57,13 +57,14 @@ class ProgressIndicator extends Component {
     }
 
     render() {
+        let { activePhase } = this.props;        
         return(
             <div className="pi">
                 <div id="outer-pi-container" className="pi--circle">
                     <div className="circle-bg"></div>
                     <div id="circle"></div>
                 </div>
-                <ProgressIndicatorSkeleton />
+                <ProgressIndicatorSkeleton activePhase={activePhase} />
             </div>
         );
     }
