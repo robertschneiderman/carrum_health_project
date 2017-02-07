@@ -14,8 +14,7 @@ class PCPForm extends Component {
         let doctor = {};
         if (doctors["Primary Care Physician"]) {
             doctor = doctors["Primary Care Physician"];
-            this.props.initialize(doctor);
-        debugger;     
+            // this.props.initialize(doctor);
         }      
         return(
             <MedicalReleaseForm initialValues={doctor} type={'Primary Care Physician'} {...this.props} />
@@ -26,8 +25,6 @@ class PCPForm extends Component {
 export default reduxForm({
   form: 'PCPForm',
   validate,
-
-  keepDirtyOnReinitialize: true,
   destroyOnUnmount: false,
   enableReinitialize: true  
 })(PCPForm);
