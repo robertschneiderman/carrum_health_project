@@ -45,7 +45,7 @@ export const validate = values => {
     if (!values.zip) {
         errors.zip = 'Required';
     } else if (values.zip.length !== 5) {
-        errors.phoneNumber = 'Must be 5 numbers';
+        errors.zip = 'Must be 5 numbers';
     }     
 
     if (!values.mostRecentVisitDate) {
