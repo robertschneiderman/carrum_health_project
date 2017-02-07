@@ -7,7 +7,7 @@ class OrthoReleaseForm extends Component {
     }
     render() {
         return(
-            <MedicalReleaseForm type={'Orthopedic Specialist'} />
+            <MedicalReleaseForm type={'Orthopedic Specialist'} {...this.props} />
         );
     }
 }

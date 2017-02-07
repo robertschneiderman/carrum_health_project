@@ -12,3 +12,8 @@ export const changeStage = payload => ({
     type: 'CHANGE_STAGE',
     payload
 });
+
+export const addDoctor = payload => ({
+    type: 'ADD_DOCTOR',
+    payload
+});

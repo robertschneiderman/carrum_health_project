@@ -7,8 +7,32 @@ class ConfirmPhysicians extends Component {
     }
 
     renderForms() {
-        this.props.forms(form => {
-            
+        let { doctors } = this.props;
+        debugger;
+        return doctors.map(doctor => {
+            return (
+                <ul className="list-unbulleted">
+                    <li className="item-spaced">
+                        <h3 className="title">{doctor.type}</h3>
+                        <table className="table">
+                            <tr className="table--row">
+                                <td className="table--column"><span className="style-grey">Name:</span></td>
+                                <td className="table--column">{doctor.name}</td>
+                                <td className="table--column"><a className="link link-regular">Edit</a></td>
+                            </tr>
+                            <tr className="table--row">
+                                <td className="table--column"><span className="style-grey">Phone:</span></td>
+                                <td className="table--column">{doctor.phoneNumber}</td>
+                                <td className="table--column"><a className="link link-regular">Delete</a></td>
+                            </tr>
+                            <tr className="table--row">
+                                <td className="table--column"><span className="style-grey">Address:</span></td>
+                                <td className="table--column">{doctor.address1}</td>
+                            </tr>                                  
+                        </table>
+                    </li>
+                </ul>
+            );
         });
     }
 

@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Prompt from './prompt';
-import MedicalReleaseForm from './medical_release_form';
+import MRFPCP from './mrf_pcp';
+import MRFOrtho from './mrf_ortho';
 import ConfirmPhysicians from './confirm_physicians';
 import * as actions from '../actions';
 
 const components = {
   "prompt": Prompt,
-  "medical-release-form": MedicalReleaseForm,
+  "mrf-pcp": MRFPCP,
+  "mrf-ortho": MRFOrtho,
   "confirm-physicians": ConfirmPhysicians
 };
 
@@ -43,7 +45,7 @@ const mapStateToProps = (state, ownProps) => {
     return {    
         stages,
         activeStage: task.activeStage,
-        forms: task.forms,
+        doctors: task.doctors,
     };
 };
 
@@ -51,6 +53,7 @@ const mapDispatchToProps = dispatch => ({
     makeProgress: payload => dispatch(actions.makeProgress(payload)),
     nextPhase: payload => dispatch(actions.nextPhase(payload)),
     changeStage: payload => dispatch(actions.changeStage(payload)),
+    addDoctor: payload => dispatch(actions.addDoctor(payload))
 });
     // Task: payload => dispatch(Task(payload))
 

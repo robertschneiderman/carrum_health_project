@@ -13,7 +13,8 @@ let phases = [
                 name: 'medical records release form',
                 stages: [
                     'prompt',
-                    'medical-release-form',
+                    'mrf-pcp',
+                    'mrf-ortho',
                     'confirm-physicians'
                 ]
             }

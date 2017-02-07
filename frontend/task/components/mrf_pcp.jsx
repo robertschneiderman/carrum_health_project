@@ -8,7 +8,7 @@ class PCPForm extends Component {
     }
     render() {
         return(
-            <MedicalReleaseForm type={'Primary Care Physician'} />
+            <MedicalReleaseForm type={'Primary Care Physician'} {...this.props} />
         );
     }
 }
