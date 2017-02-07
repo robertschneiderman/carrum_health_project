@@ -53,7 +53,8 @@ const mapDispatchToProps = dispatch => ({
     makeProgress: payload => dispatch(actions.makeProgress(payload)),
     nextPhase: payload => dispatch(actions.nextPhase(payload)),
     changeStage: payload => dispatch(actions.changeStage(payload)),
-    addDoctor: payload => dispatch(actions.addDoctor(payload))
+    addDoctor: payload => dispatch(actions.addDoctor(payload)),
+    deleteDoctor: payload => dispatch(actions.deleteDoctor(payload))
 });
     // Task: payload => dispatch(Task(payload))
 

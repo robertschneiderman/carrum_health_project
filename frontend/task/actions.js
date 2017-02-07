@@ -17,3 +17,8 @@ export const addDoctor = payload => ({
     type: 'ADD_DOCTOR',
     payload
 });
+
+export const deleteDoctor = payload => ({
+    type: 'DELETE_DOCTOR',
+    payload
+});

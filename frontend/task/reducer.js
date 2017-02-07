@@ -15,7 +15,10 @@ const taskReducer = (state = defaultState, action) => {
             return newState;   
         case 'ADD_DOCTOR':
             newState.doctors[action.payload.type] = action.payload;
-            return newState;                      
+            return newState;  
+        case 'DELETE_DOCTOR':
+            delete newState.doctors[action.payload];
+            return newState;                                  
         default:
             return state;
     }

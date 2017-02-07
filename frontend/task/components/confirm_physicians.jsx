@@ -28,6 +28,11 @@ class ConfirmPhysicians extends Component {
         }
     }
 
+    handleDelete(key) {
+        debugger;
+        this.props.deleteDoctor(key);
+    }
+
     renderForms() {
         let { doctors } = this.props;
         let doctorsJSX = [];
@@ -46,7 +51,7 @@ class ConfirmPhysicians extends Component {
                             <tr className="table--row">
                                 <td className="table--column"><span className="style-grey">Phone:</span></td>
                                 <td className="table--column">{doctor.phoneNumber}</td>
-                                <td className="table--column"><a className="link link-regular">Delete</a></td>
+                                <td className="table--column"><a className="link link-regular" onClick={this.handleDelete.bind(this, key)}>Delete</a></td>
                             </tr>
                             <tr className="table--row">
                                 <td className="table--column"><span className="style-grey">Address:</span></td>
