@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ProgressIndicator from './progress_indicator';
+import ProgressIndicatorMobile from './progress_indicator_mobile';
 import ProgressCircle from './progress_circle';
 import Phase from './phase';
 import Panels from './panels';
@@ -11,6 +12,9 @@ class Dashboard extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleClick2 = this.handleClick2.bind(this);
+        this.state = {
+            mobileNavbarActive: false
+        };
     }
 
     renderPhases() {
@@ -30,15 +34,27 @@ class Dashboard extends Component {
         this.props.nextPhase(1);
     }    
 
+    toggleNavbar() {
+        this.setState({mobileNavbarActive: !this.state.mobileNavbarActive});
+    }
+
     render() {
                         // <ProgressCircle {...this.props} circleClass={'mobile'} />
-
+        let orgSkelClass = this.state.mobileNavbarActive ? 'none' : '';
+        let newSkelClass = this.state.mobileNavbarActive ? 'inverted' : 'none';
+        let navbarClass = this.state.mobileNavbarActive ? 'active' : '';
         return(
             <div className="db">
-                <ProgressIndicator target="circle" skeletonClass={''} circleClass={'desktop'} {...this.props} />
+                <div className={`mobile-navbar ${navbarClass}`}>
+                    <ProgressIndicator target="circle" skeletonClass={orgSkelClass} circleClass={'desktop'} {...this.props} />
+                    <ProgressIndicatorMobile target="circle3" skeletonClass={newSkelClass} circleClass={'pi--circle-mobile'} {...this.props} />
+                    <div className="mobile-navbar--btn" onClick={this.toggleNavbar.bind(this)}>
+                        <img src="./static/images/down_arrow.svg" alt=""/>
+                    </div>
+                </div>
 
                 <div className="mobile-flex">            
-                    <ProgressCircle target="circle-new" circleClass={'mobile'} {...this.props} />
+                    <ProgressCircle target="circle2" circleClass={'mobile'} {...this.props} />
                     <div className="phases-sec">
                         <div className="container phases">
                             {this.renderPhases()}

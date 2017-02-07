@@ -28,10 +28,10 @@ class ProgressCircle extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        debugger;
         let { activePhase } = this.props;
         if (nextProps.activePhase !== activePhase) {
             document.getElementById('outer-pi-container').style.left = `${31.05 * (activePhase + 1)}%`;
+            document.getElementsByClassName('pi--circle-mobile')[0].style.top = `${21.05 * (activePhase + 1)}%`;
             this.state.circle.set(0);
             this.state.circle.setText('0%');
             // this.state.circle.animate(0); 
