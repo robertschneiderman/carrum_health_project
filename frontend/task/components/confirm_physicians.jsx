@@ -11,14 +11,13 @@ class ConfirmPhysicians extends Component {
     }
 
     handleForwardClick() {
-        hashHistory.push('/');
-        this.props.nextPhase(1);
+        this.props.makeProgress(25);
     }
 
     handleBackClick(e) {
         if (e) e.preventDefault();
         this.props.changeStage(-1);
-        this.props.makeProgress(-24);              
+        this.props.makeProgress(-25);              
     }
 
     handleEdit(key) {
@@ -26,7 +25,7 @@ class ConfirmPhysicians extends Component {
             this.handleBackClick();
         } else {
             this.props.changeStage(-2);
-            this.props.makeProgress(-48);             
+            this.props.makeProgress(-50);             
         }
     }
 

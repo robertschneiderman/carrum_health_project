@@ -52,7 +52,6 @@ const mapStateToProps = (state, ownProps) => {
     // if (phase.tasks.length > 0) {
     //     let stages = activeTask.stages;
     // }
-    // debugger;
     return {    
         activeTask,
         activeStage: task.activeStage,

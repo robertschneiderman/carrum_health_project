@@ -17,7 +17,6 @@ class Dashboard extends Component {
         let { phases, activePhase } = this.props;
         return phases.map((phase, i) => {
             let active = phase.number === (activePhase+1);
-                debugger;
             return (<Phase phase={phase} active={active} key={`phase-${i}`} />);
         });
     }

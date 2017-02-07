@@ -24,20 +24,20 @@ class MedicalReleaseForm extends Component {
 
     handleForwardClick() {
         this.props.changeStage(1);
-        this.props.makeProgress(24);        
+        this.props.makeProgress(25);        
     }
 
     handleBackClick(e) {
         e.preventDefault();
         this.props.changeStage(-1);
-        this.props.makeProgress(-24);              
+        this.props.makeProgress(-25);              
     }
 
     handleFormSubmit({ name, phoneNumber, address1, address2, city, state, zip, mostRecentVisitDate}) {
         // debugger;
         this.props.addDoctor({ type: this.props.type, name, phoneNumber, address1, address2, city, state, zip, mostRecentVisitDate});
         this.props.changeStage(1);
-        this.props.makeProgress(24);        
+        this.props.makeProgress(25);        
     }
 
     render() {

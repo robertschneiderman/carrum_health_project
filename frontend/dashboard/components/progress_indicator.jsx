@@ -3,6 +3,7 @@ import ProgressIndicatorSkeleton from './progress_indicator_skeleton';
 const Snap = require(`imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js`);
 var ProgressBar = require('progressbar.js');
 window.Snap = Snap;
+import { router, hashHistory} from 'react-router';
 import * as actions from '../actions';
 
 class ProgressIndicator extends Component {
@@ -43,6 +44,12 @@ class ProgressIndicator extends Component {
             step: function(state, circle, attachment) {
                 circle.setText(Math.floor(circle.value() * 100));
                 returnedCircle = circle;
+            }
+        }, (thing = this.state.circle) => {
+            debugger;
+            if (thing.value() === 1) {
+                hashHistory.push('/');
+                this.props.nextPhase(1);
             }
         });
         this.setState({circle: returnedCircle});
