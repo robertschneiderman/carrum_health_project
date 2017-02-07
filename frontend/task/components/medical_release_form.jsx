@@ -8,8 +8,15 @@ class MedicalReleaseForm extends Component {
         this.handleForwardClick = this.handleForwardClick.bind(this);
     }
 
-    handBackClick(e) {
+    handleForwardClick() {
+        this.props.changeStage(1);
+        this.props.makeProgress(24);        
+    }
+
+    handleBackClick(e) {
         e.preventDefault();
+        this.props.changeStage(-1);
+        this.props.makeProgress(-24);              
     }
 
     render() {
@@ -68,7 +75,7 @@ class MedicalReleaseForm extends Component {
 
                 <hr className="line line-grey"/>
 
-                <div className="buttons fb jcsp">
+                <div className="buttons fb jcsp aic">
                     <a className="link-large" onClick={(e) => this.handleBackClick(e)}>&lt; Back</a>
                     <button className="btn btn-primary">Continue</button>
                 </div>

@@ -1,0 +1,11 @@
+.fb {
+    display: flex;
+}
+
+.jcsp {
+    justify-content: space-between;
+}
+
+.aic {
+    align-items: center;
+}
