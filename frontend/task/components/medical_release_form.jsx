@@ -73,7 +73,6 @@ class MedicalReleaseForm extends Component {
 
     handleBackClick(e) {
         e.preventDefault();
-        this.props.addDoctor();
         this.props.changeStage(-1);
         this.props.makeProgress(-24);              
     }

@@ -4,6 +4,18 @@ import React, {Component} from 'react';
 class ConfirmPhysicians extends Component {
     constructor(props) {
         super(props);
+        this.handleBackClick = this.handleBackClick.bind(this);
+        this.handleForwardClick = this.handleForwardClick.bind(this);
+    }
+
+    handleForwardClick() {
+        this.props.nextPhase(1);
+    }
+
+    handleBackClick(e) {
+        e.preventDefault();
+        this.props.changeStage(-1);
+        this.props.makeProgress(-24);              
     }
 
     renderForms() {
@@ -41,6 +53,12 @@ class ConfirmPhysicians extends Component {
             <div className="confirm-physicians">
                 <p className="text-regular">Review the information about physicians you have seen regardign your condition and include additional ones as necessary</p>
                 {this.renderForms()}
+                <hr className="line line-grey"/>
+
+                <div className="buttons fb jcsp aic">
+                    <a className="link-large" onClick={(e) => this.handleBackClick(e)}>&lt; Back</a>
+                    <button className="btn btn-primary" onClick={this.handleForwardClick.bind(this)}>Continue</button>
+                </div>                
             </div>
         );
     }
