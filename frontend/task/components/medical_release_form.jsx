@@ -15,6 +15,7 @@ class MedicalReleaseForm extends Component {
 
     handleBackClick(e) {
         e.preventDefault();
+        // this.props.addDoctor()
         this.props.changeStage(-1);
         this.props.makeProgress(-24);              
     }
@@ -22,7 +23,7 @@ class MedicalReleaseForm extends Component {
     render() {
         return(
             <div className="medical-release-form">
-                <p className="text-large">Who is your Primary Care Physician (PCP)</p>
+                <p className="text-large">Who is your {this.props.type}</p>
                 <form className="form">
                     <div className="fieldset">
                         <field className="field">

@@ -4,6 +4,7 @@ import {router, hashHistory} from 'react-router';
 
 let defaultState = {
     activeStage: 0,
+    forms: []
 };
 
 const taskReducer = (state = defaultState, action) => {

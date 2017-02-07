@@ -42,7 +42,8 @@ const mapStateToProps = (state, ownProps) => {
     let stages = activeTask.stages;
     return {    
         stages,
-        activeStage: task.activeStage
+        activeStage: task.activeStage,
+        forms: task.forms,
     };
 };
 
