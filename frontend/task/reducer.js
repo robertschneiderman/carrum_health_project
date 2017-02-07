@@ -4,7 +4,7 @@ import {router, hashHistory} from 'react-router';
 
 let defaultState = {
     activeStage: 0,
-    doctors: []
+    doctors: {}
 };
 
 const taskReducer = (state = defaultState, action) => {
@@ -14,7 +14,7 @@ const taskReducer = (state = defaultState, action) => {
             newState.activeStage += action.payload;
             return newState;   
         case 'ADD_DOCTOR':
-            newState.doctors.push(action.payload);
+            newState.doctors[action.payload.type] = action.payload;
             return newState;                      
         default:
             return state;

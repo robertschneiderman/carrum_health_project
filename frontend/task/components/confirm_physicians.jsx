@@ -20,9 +20,10 @@ class ConfirmPhysicians extends Component {
 
     renderForms() {
         let { doctors } = this.props;
-        debugger;
-        return doctors.map(doctor => {
-            return (
+        let doctorsJSX = [];
+        for (let key in doctors) {
+            let doctor = doctors[key];
+            doctorsJSX.push(
                 <ul className="list-unbulleted">
                     <li className="item-spaced">
                         <h3 className="title">{doctor.type}</h3>
@@ -45,7 +46,8 @@ class ConfirmPhysicians extends Component {
                     </li>
                 </ul>
             );
-        });
+        }
+        return doctorsJSX;
     }
 
     render() {

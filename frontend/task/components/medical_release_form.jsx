@@ -1,62 +1,8 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
+import {connect} from 'react-redux';
+import {renderField} from '../helpers';
 import * as actions from '../actions';
-
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
-    return (
-        <div>
-            <label className="label">{label}</label>
-            <input className="input" {...input} type={type}/>
-            {touched && ((error && <span className="form-error">{error}</span>) || (warning && <span>{warning}</span>))}
-        </div>
-        );
-    };
-
-const validate = values => {
-    const errors = {};
-    if (!values.name) {
-        errors.name = 'Required';
-    } else if (values.name.length < 3) {
-        errors.name = 'Must be at least 3 characters';
-    }
-
-    if (!values.phoneNumber) {
-        errors.phoneNumber = 'Required';
-    } else if (values.phoneNumber.length !== 10) {
-        errors.phoneNumber = 'Must be 10 numbers';
-    }    
-
-    if (!values.password) {
-        errors.password = 'Required';
-    } else if (values.password.length < 6) {
-        errors.password = 'Must be at least 6 characters';
-    }
-
-    if (!values.address1) {
-        errors.address1 = 'Required';
-    } 
-
-    if (!values.city) {
-        errors.city = 'Required';
-    }
-
-    if (!values.state) {
-        errors.state = 'Required';
-    } 
-    
-    if (!values.zip) {
-        errors.zip = 'Required';
-    } else if (values.zip.length !== 5) {
-        errors.phoneNumber = 'Must be 5 numbers';
-    }     
-
-    if (!values.mostRecentVisitDate) {
-        errors.mostRecentVisitDate = 'Required';
-    }                              
-
-    return errors;
-};
-
 
 class MedicalReleaseForm extends Component {
     constructor(props) {
@@ -64,6 +10,16 @@ class MedicalReleaseForm extends Component {
         this.handleBackClick = this.handleBackClick.bind(this);
         this.handleForwardClick = this.handleForwardClick.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    }
+
+    componentWillMount() {
+        // let {doctors, type} = this.props;
+        // debugger;
+        // this.doctor = {};
+        // if (doctors[type]) {
+        //     this.doctor = doctors[type];
+        //     this.props.initialize(this.doctor);
+        // }
     }
 
     handleForwardClick() {
@@ -79,14 +35,14 @@ class MedicalReleaseForm extends Component {
 
     handleFormSubmit({ name, phoneNumber, address1, address2, city, state, zip, mostRecentVisitDate}) {
         // debugger;
-        this.props.addDoctor({ name, phoneNumber, address1, address2, city, state, zip, mostRecentVisitDate});
+        this.props.addDoctor({ type: this.props.type, name, phoneNumber, address1, address2, city, state, zip, mostRecentVisitDate});
         this.props.changeStage(1);
         this.props.makeProgress(24);        
     }
 
-
     render() {
-        let {handleSubmit} = this.props;
+        let {handleSubmit, doctors, type} = this.props;
+
         return(
             <div className="medical-release-form">
                 <p className="text-large">Who is your <strong>{this.props.type}</strong>?</p>
@@ -141,7 +97,4 @@ class MedicalReleaseForm extends Component {
     }
 }
 
-export default reduxForm({
-  form: 'signup',
-  validate
-})(MedicalReleaseForm);
+export default MedicalReleaseForm;
