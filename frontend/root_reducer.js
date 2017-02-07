@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
 import dashboard from './dashboard/reducer';
+import task from './task/reducer';
 
 const appReducer = combineReducers({
   form,
-  dashboard
+  dashboard,
+  task
 });
 
 const rootReducer = (state, action) => {

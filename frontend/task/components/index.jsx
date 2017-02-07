@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Prompt from './prompt';
 import MedicalReleaseForm from './medical_release_form';
 import ConfirmPhysicians from './confirm_physicians';
-// import * as actions from '../actions';
+import * as actions from '../actions';
 
 const components = {
   "prompt": Prompt,
@@ -17,12 +17,14 @@ class Task extends Component {
     }
 
     renderStages() {
-        let { stages } = this.props;
-        return stages.map((stage, i) => {
+        let { stages, activeStage } = this.props;
             debugger;
-            let Name = components[stage];
-            return <Name key={`stage-${i}`}/>;
-        });
+        let stage = stages[activeStage];
+        let Name = components[stage];
+        return <Name {...this.props} />;
+        // return stages.map((stage, i) => {
+        //     return <Name {...this.props} key={`stage-${i}`}/>;
+        // });
     }
 
     render() {
@@ -35,16 +37,20 @@ class Task extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    let { dashboard } = state;
+    let { dashboard, task } = state;
     let phase = dashboard.phases[dashboard.activePhase];
-    let task = phase.tasks[parseInt(ownProps.params.id)];
-    let stages = task.stages;
+    let activeTask = phase.tasks[parseInt(ownProps.params.id)];
+    let stages = activeTask.stages;
     return {    
-        stages
+        stages,
+        activeStage: task.activeStage
     };
 };
 
 const mapDispatchToProps = dispatch => ({
+    makeProgress: payload => dispatch(actions.makeProgress(payload)),
+    nextPhase: payload => dispatch(actions.nextPhase(payload)),
+    changeStage: payload => dispatch(actions.changeStage(payload)),
 });
     // Task: payload => dispatch(Task(payload))
 

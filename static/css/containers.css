@@ -16,3 +16,7 @@
 }
 
 .panels {display: flex;justify-content: space-between;}
+
+.prompt {
+    text-align: right;
+}
