@@ -14,7 +14,9 @@ class Phase extends Component {
 
     render() {
 
-        let { name, active } = this.props.phase;
+        let { name } = this.props.phase;
+        let { active } = this.props;
+
         let className = active ? 'phase active' : 'phase';
         return(
             <div className={className}>
