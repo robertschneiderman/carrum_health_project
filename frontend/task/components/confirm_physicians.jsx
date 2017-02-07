@@ -6,6 +6,7 @@ class ConfirmPhysicians extends Component {
         super(props);
         this.handleBackClick = this.handleBackClick.bind(this);
         this.handleForwardClick = this.handleForwardClick.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
     handleForwardClick() {
@@ -13,9 +14,18 @@ class ConfirmPhysicians extends Component {
     }
 
     handleBackClick(e) {
-        e.preventDefault();
+        if (e) e.preventDefault();
         this.props.changeStage(-1);
         this.props.makeProgress(-24);              
+    }
+
+    handleEdit(key) {
+        if (key === 'Orthopedic Specialist') {
+            this.handleBackClick();
+        } else {
+            this.props.changeStage(-2);
+            this.props.makeProgress(-48);             
+        }
     }
 
     renderForms() {
@@ -31,7 +41,7 @@ class ConfirmPhysicians extends Component {
                             <tr className="table--row">
                                 <td className="table--column"><span className="style-grey">Name:</span></td>
                                 <td className="table--column">{doctor.name}</td>
-                                <td className="table--column"><a className="link link-regular">Edit</a></td>
+                                <td className="table--column"><a className="link link-regular" onClick={this.handleEdit.bind(this, key)}>Edit</a></td>
                             </tr>
                             <tr className="table--row">
                                 <td className="table--column"><span className="style-grey">Phone:</span></td>
