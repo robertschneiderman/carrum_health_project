@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {router, hashHistory} from 'react-router';
 // import * as actions from '../actions';
 
 class ConfirmPhysicians extends Component {
@@ -10,6 +11,7 @@ class ConfirmPhysicians extends Component {
     }
 
     handleForwardClick() {
+        hashHistory.push('/');
         this.props.nextPhase(1);
     }
 

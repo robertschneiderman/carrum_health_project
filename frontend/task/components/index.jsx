@@ -19,13 +19,12 @@ class Task extends Component {
     }
 
     renderStages() {
-        let { stages, activeStage } = this.props;
-        let stage = stages[activeStage];
-        let Name = components[stage];
-        return <Name {...this.props} />;
-        // return stages.map((stage, i) => {
-        //     return <Name {...this.props} key={`stage-${i}`}/>;
-        // });
+        let { activeTask, activeStage } = this.props;
+        if (activeTask) {
+            let stage = activeTask.stages[activeStage];
+            let Name = components[stage];
+            return <Name {...this.props} />;
+        }
     }
 
     render() {
@@ -40,10 +39,22 @@ class Task extends Component {
 const mapStateToProps = (state, ownProps) => {
     let { dashboard, task } = state;
     let phase = dashboard.phases[dashboard.activePhase];
-    let activeTask = phase.tasks[parseInt(ownProps.params.id)];
-    let stages = activeTask.stages;
+    
+    let activeTask;
+    
+    if (phase.tasks.length > 0) {
+        activeTask = phase.tasks[parseInt(ownProps.params.id)];
+    } else {
+        activeTask = null;
+    }
+
+
+    // if (phase.tasks.length > 0) {
+    //     let stages = activeTask.stages;
+    // }
+    // debugger;
     return {    
-        stages,
+        activeTask,
         activeStage: task.activeStage,
         doctors: task.doctors,
     };

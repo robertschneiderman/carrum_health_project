@@ -42,7 +42,7 @@ let phases = [
 ];
 
 let defaultState = {
-    activePhase: 0,
+    activePhase: 1,
     phases
 };
 

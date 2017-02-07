@@ -11,11 +11,18 @@ class Panels extends Component {
     }
 
     handleClick(taskId) {
-        hashHistory.push(`task`);
+        hashHistory.push(`task/0`);
     }
 
     renderTasks() {
         let {phases, activePhase} = this.props;
+        if (phases[activePhase].tasks.length === 0) {
+            return (
+                <div>
+                    <p className="text-bold bullet-arrow">No tasks to complete!</p>
+                </div>                
+            );
+        }
         return phases[activePhase].tasks.map(task => {
             return (
                 <div>
@@ -28,6 +35,7 @@ class Panels extends Component {
     }
     
     render() {
+        let { activePhase } = this.props;
         return(
             <div className="panels">
                 <div className="panel">
