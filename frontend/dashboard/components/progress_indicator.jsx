@@ -18,7 +18,9 @@ class ProgressIndicator extends Component {
         let circle = new ProgressBar.Circle('#circle', {
             color: '#187bca',
             duration: 3000,
-            strokeWidth: 5,            
+            strokeWidth: 14,
+            trailColor: '#afddfd',
+            trailWidth: 14,                       
             easing: 'easeInOut',           
             text: {
                 value: '0'
@@ -30,7 +32,7 @@ class ProgressIndicator extends Component {
     componentWillReceiveProps(nextProps) {
         let { activePhase } = this.props;
         if (nextProps.activePhase !== activePhase) {
-            document.getElementById('outer-pi-container').style.left = `${31.35 * (activePhase + 1)}%`;
+            document.getElementById('outer-pi-container').style.left = `${31.05 * (activePhase + 1)}%`;
             this.state.circle.set(0);
             this.state.circle.setText('0%');
             // this.state.circle.animate(0); 
@@ -46,9 +48,8 @@ class ProgressIndicator extends Component {
                 returnedCircle = circle;
             }
         }, (thing = this.state.circle) => {
-            debugger;
             if (thing.value() === 1) {
-                hashHistory.push('/');
+                hashHistory.goBack();
                 this.props.nextPhase(1);
             }
         });
